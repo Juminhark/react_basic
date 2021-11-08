@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 function useRandomJoke(firstName, lastName) {
 	const [joke, setJoke] = useState('');
@@ -13,7 +13,7 @@ function useRandomJoke(firstName, lastName) {
 		};
 
 		fetchJoke();
-	}, []);
+	}, [firstName, lastName]);
 
 	return joke;
 }
