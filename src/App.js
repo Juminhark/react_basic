@@ -1,13 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Home from './routes/Home';
 import usingComstomHook from './routes/useCostomHook';
 
 function App() {
 	return (
-		<div className="app">
-			<center></center>
-		</div>
+		<Routes>
+			<Route path="/" element={<Home />} />
+			<Route path="/costomHook" exact={true} component={usingComstomHook} />
+		</Routes>
 	);
 }
 
