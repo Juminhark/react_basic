@@ -182,6 +182,126 @@ const Invoices = () => {
 export default Invoices;
 ```
 
+    - Outlet
+
+```js
+// Home
+import { Link, Outlet } from 'react-router-dom';
+
+const Home = () => {
+	return (
+		<div>
+			<h1>hello world</h1>
+			<nav
+				style={{
+					borderBottom: 'solid 1px',
+					paddingBottom: '1rem',
+				}}
+			>
+				<Link to="/state">useState</Link> | <Link to="/effect">useEffect</Link>{' '}
+				| <Link to="/hook">useHook</Link> | <Link to="/invoices">invoices</Link>
+			</nav>
+			<Outlet />
+		</div>
+	);
+};
+
+export default Home;
+```
+
+- useParams
+
+```js
+// App
+<Route path="invoices" element={<Invoices />}>
+	<Route path=":invoiceId" element={<Invoice />} />
+</Route>
+
+// invoices
+import { Link, Outlet } from 'react-router-dom';
+import { getInvoices } from '../data';
+
+const Invoices = () => {
+	let invoices = getInvoices();
+	return (
+		<div>
+			<nav>
+				{invoices.map((invoice) => (
+					<Link
+						to={`/invoices/${invoice.number}`}
+						key={invoice.number}
+					>
+						{invoice.name}
+					</Link>
+				))}
+			</nav>
+			<Outlet />
+		</div>
+	);
+};
+
+export default Invoices;
+
+
+// invoice
+import { useParams } from 'react-router-dom';
+
+export default function Invoice() {
+	let params = useParams();
+	return <h2>Invoice: {params.invoiceId}</h2>;
+}
+```
+
+- data 정보 가져오기
+
+```js
+// data
+export function getInvoice(number) {
+	return invoices.find((invoice) => invoice.number === number);
+}
+
+// invoice
+import { useParams } from 'react-router-dom';
+import { getInvoice } from '../data';
+
+export default function Invoice() {
+	let params = useParams();
+	// data 정보가져오기
+	let invoice = getInvoice(parseInt(params.invoiceId, 10));
+	return (
+		<main style={{ padding: '1rem' }}>
+			<h2>Total Due: {invoice.amount}</h2>
+			<p>
+				{invoice.name}: {invoice.number}
+			</p>
+			<p>Due Date: {invoice.due}</p>
+		</main>
+	);
+}
+```
+
+- Index Route : list가 있는 첫화면에 대한 대응
+
+```js
+// App
+<Route path="invoices" element={<Invoices />}>
+	<Route
+		index
+		element={
+			<main style={{ padding: '1rem' }}>
+				<p>Select an invoice</p>
+			</main>
+		}
+	/>
+	<Route path=":invoiceId" element={<Invoice />} />
+</Route>
+```
+
+- Active Links
+- Search Params
+- Custom Behavior
+- Navigating Programmatically
+
 ## [useState](https://www.youtube.com/watch?v=kkuq0gTGRFQ)
 
 ## [useEffect](https://www.youtube.com/watch?v=UVhIMwHDS7k)

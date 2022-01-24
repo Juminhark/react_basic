@@ -3,7 +3,9 @@ import { Link, Outlet } from 'react-router-dom';
 const Home = () => {
 	return (
 		<div>
-			<h1>hello world</h1>
+			<Link to="/">
+				<h1>Home</h1>
+			</Link>
 			<nav
 				style={{
 					borderBottom: 'solid 1px',
