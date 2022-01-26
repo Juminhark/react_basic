@@ -302,6 +302,57 @@ export default function Invoice() {
 - Custom Behavior
 - Navigating Programmatically
 
+## [Components 와 Props](https://ko.reactjs.org/docs/components-and-props.html)
+
+- component
+
+```js
+// component를 정의하는 방법 2가지
+
+//? 1. JavaScript 함수로 작성
+const Component = (props) => {
+	console.log(props);
+	return <div>{props.name}</div>;
+};
+
+export default Component;
+
+//? 2. ES6 class를 사용
+class Component extends React.Component {
+  render() {
+    return <div>{this.props.name}</div>;
+  }
+};
+
+export default Component;
+```
+
+- props 와 prop 속성 꺼내기
+
+```js
+const Props = (props) => {
+	console.log(props);
+	return <div>{props.name}</div>;
+};
+
+// prop-types
+import PropTypes from 'prop-types';
+
+const Prop = ({ name }) => {
+	console.log(name);
+	return <div>prop = {name}</div>;
+};
+
+export default Prop;
+
+//? prop control : default값과 검증
+//? 1. 검증
+Prop.propType = { name: PropTypes.string.isRequired };
+
+//? 2. default
+Prop.defaultProps = { name: 'zillda' };
+```
+
 ## [useState](https://www.youtube.com/watch?v=kkuq0gTGRFQ)
 
 ## [useEffect](https://www.youtube.com/watch?v=UVhIMwHDS7k)

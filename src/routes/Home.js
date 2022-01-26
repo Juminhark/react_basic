@@ -12,6 +12,7 @@ const Home = () => {
 					paddingBottom: '1rem',
 				}}
 			>
+				<Link to="/component">component</Link> |<Link to="/prop">prop</Link> |
 				<Link to="/state">useState</Link> | <Link to="/effect">useEffect</Link>{' '}
 				| <Link to="/hook">useHook</Link> | <Link to="/invoices">invoices</Link>
 			</nav>

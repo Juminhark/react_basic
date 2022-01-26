@@ -6,11 +6,18 @@ import State from './routes/State';
 import Hook from './routes/Hook';
 import Invoices from './routes/Invoices';
 import Invoice from './routes/Invoice';
+import Prop from './routes/Prop';
+import Component from './routes/Component';
+// import Invoice from './routes/Invoice';
+// import Invoice from './routes/Invoice';
+// import Invoice from './routes/Invoice';
 
 function App() {
 	return (
 		<Routes>
 			<Route path="/" element={<Home />}>
+				<Route path="component" element={<Component name="sara" age={19} />} />
+				<Route path="prop" element={<Prop>children</Prop>} />
 				<Route path="state" element={<State />} />
 				<Route path="effect" element={<Effect />} />
 				<Route path="hook" element={<Hook />} />
