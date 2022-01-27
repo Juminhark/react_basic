@@ -247,7 +247,9 @@ export default Invoices;
 import { useParams } from 'react-router-dom';
 
 export default function Invoice() {
+	// param 가져다 쓰기
 	let params = useParams();
+	// console.log(params)
 	return <h2>Invoice: {params.invoiceId}</h2>;
 }
 ```
@@ -280,7 +282,7 @@ export default function Invoice() {
 }
 ```
 
-- Index Route : list가 있는 첫화면에 대한 대응
+- Index Route : list가 있을때 "첫화면에 대한 대응"
 
 ```js
 // App
@@ -370,7 +372,7 @@ Prop.defaultProps = { name: 'zillda' };
 - useWhyDidYouUpdate
 - useDarkMode
 
-## countDown
+## countDown code example
 
 ```js
 const ForClean = () => {
