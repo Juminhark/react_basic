@@ -1,0 +1,11 @@
+* {
+	margin: 8px;
+}
+
+.red {
+	color: red;
+}
+
+.span-dispaly {
+	display: inline-block;
+}

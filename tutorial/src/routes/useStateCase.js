@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 
 const State = () => {
 	const [count, setCount] = useState(0);
+	const [isRed, setIsRed] = useState(false);
 
 	const increment = () => setCount(count + 1);
 	const decrement = () => setCount(count - 1);
+	const changeColor = () => setIsRed(!isRed);
+
 	return (
 		<div>
-			<button onClick={decrement}> - </button>
-			{count} <button onClick={increment}> + </button>
+			<div>
+				<button onClick={decrement}> - </button>{' '}
+				<h3 style={isRed ? { color: 'red' } : { color: '' }}>{count}</h3>
+				<button onClick={increment}> + </button>
+			</div>
+			<button onClick={changeColor}> changeColor </button>
 		</div>
 	);
 };
@@ -27,6 +34,7 @@ export default State;
 // 		};
 // 	}
 
+// 기존 class component는 state를 가져오기 위해 this.state.count 를 사용
 // 	increment = () => {
 // 		this.setState({
 // 			count: this.state.count + 1,

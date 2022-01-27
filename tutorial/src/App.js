@@ -1,8 +1,9 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './routes/Home';
-import Effect from './routes/Effect';
-import State from './routes/State';
+import Effect from './routes/useEffectCase';
+import EffectClean from './routes/EffectClean';
+import State from './routes/useStateCase';
 import Hook from './routes/Hook';
 import Invoices from './routes/Invoices';
 import Invoice from './routes/Invoice';
@@ -20,6 +21,7 @@ function App() {
 				<Route path="prop" element={<Prop>children</Prop>} />
 				<Route path="state" element={<State />} />
 				<Route path="effect" element={<Effect />} />
+				<Route path="effect_cleanup" element={<EffectClean />} />
 				<Route path="hook" element={<Hook />} />
 				<Route path="invoices" element={<Invoices />}>
 					<Route

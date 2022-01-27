@@ -369,3 +369,35 @@ Prop.defaultProps = { name: 'zillda' };
 - useEventListener
 - useWhyDidYouUpdate
 - useDarkMode
+
+## countDown
+
+```js
+const ForClean = () => {
+	const [name, setName] = useState('');
+	const [second, setSecond] = useState(10);
+
+	const handleName = (e) => {
+		const { value } = e.target;
+		setName(value);
+	};
+
+	////////////////////////////////////////////////////////
+	useEffect(() => {
+		if (second === 0) return;
+
+		const timeout = setTimeout(() => setSecond(second - 1), 1000);
+
+		return () => setTimeout(timeout);
+	}, [second]);
+	////////////////////////////////////////////////////////
+
+	return (
+		<div>
+			<input value={name} onChange={handleName} placeholder="name" />
+			<span> {name} </span>
+			<p>{second}초후에 사라집니다</p>
+		</div>
+	);
+};
+```
