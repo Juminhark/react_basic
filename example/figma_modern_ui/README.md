@@ -29,3 +29,7 @@ export default App;
 ```
 
 ## [gradient generator](https://angrytools.com/gradient/)
+
+## [figma](https://www.figma.com/files/recent?fuid=1085838858872611893)
+
+    - [figma, UI GUI 디자인 프로그램](https://www.wedesignx.com/knowledge/figma-ui-gui-design-program)
